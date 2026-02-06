@@ -38,7 +38,7 @@
 
  * **Funções Chave:** Responsável pelo endereçamento lógico (como o IP), roteamento (escolha do caminho), acesso à sub-rede e interconexão de redes diferentes.
 
- * **Nota sobre o Chat:** A "Comutação por Pacotes" (*Packet Switching*) mencionada nas mensagens é fundamentalmente gerenciada nesta camada para o encaminhamento através da rede, embora a tecnologia de comutação física ocorra também no Enlace.
+ * **Nota sobre Packet Switching:** A "Comutação por Pacotes" (*Packet Switching*) é fundamentalmente gerenciada nesta camada para o encaminhamento através da rede, embora a tecnologia de comutação física ocorra também no Enlace.
 
 #### IV. Camada de Transporte (Layer 4)
  Garante a transferência de dados transparente e "fim-a-fim", ou seja, da origem até o destino final, independente da topologia da rede.
