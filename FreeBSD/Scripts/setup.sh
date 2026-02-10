@@ -87,6 +87,22 @@ cat << 'EOF' | tee -a "$HOME/.bashrc" | sudo tee -a "/root/.bashrc" > "/dev/null
 ### SHELL ENVIRONMENT
 ### ################################
 
+git_branch() {
+	local branch="$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)"
+	if [ -n "${branch}" ]; then
+		printf "${branch}"
+	fi
+}
+
+show_git_branch() {
+	if git rev-parse --is-inside-work-tree &>/dev/null; then
+		local branch="$(git_branch)"
+		if [ -n "${branch}" ]; then
+			printf "❮\e[1;31m󰊢 \e[1;35${branch}\e[0;33m❯"
+		fi
+	fi
+}
+
 os_version=$(freebsd-version)
 sh_name=$(ps -p $$ -o comm=)
 if [ "$(id -u)" -eq 0 ]; then
@@ -96,7 +112,7 @@ else
 fi
 export PS1="
 \[\e[0;33m\]\[\e[1;31m\] \[\e[1;35m\]${os_version}\[\e[0;33m\]─\[\e[1;34m\] \[\e[1;35m\]${sh_name}\[\e[0;33m\]
-\[\e[0;33m\]┌──❮ \[\e[1;32m\] \t\[\e[0;33m\] ❯─❮ \[\e[1;32m\] \D{%d/%m/%y}\[\e[0;33m\] ❯─❮ \[\e[1;33m\] \[\e[1;36m\]\W\[\e[0;33m\] ❯─ ❮\[\e[1;34m\] ${usr_color}\u\[\e[0;33m\]❯
+\[\e[0;33m\]┌──❮ \[\e[1;32m\] \t\[\e[0;33m\] ❯─❮ \[\e[1;32m\] \D{%d/%m/%y}\[\e[0;33m\] ❯─❮ \[\e[1;33m\] \[\e[1;36m\]\W\[\e[0;33m\] ❯─ ❮\[\e[1;34m\] ${usr_color}\u\[\e[0;33m\]❯ \$(show_git_branch)
 \[\e[0;33m\]└─\[\e[1;34m\]\[\e[0m\] "
 
 ### ################################
@@ -148,6 +164,22 @@ setopt AUTO_CD
 ### SHELL ENVIRONMENT
 ### ################################
 
+git_branch() {
+	local branch="$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)"
+	if [ -n "${branch}" ]; then
+		printf "${branch}"
+	fi
+}
+
+show_git_branch() {
+	if git rev-parse --is-inside-work-tree &>/dev/null; then
+		local branch="$(git_branch)"
+		if [ -n "${branch}" ]; then
+			printf "❮%B%F{red}󰊢 %F{magenta}${branch}%b%F{yellow}❯"
+		fi
+	fi
+}
+
 os_version=$(freebsd-version)
 sh_name=$(ps -p $$ -o comm=)
 if [ "$(id -u)" -eq 0 ]; then
@@ -157,7 +189,7 @@ else
 fi
 export PROMPT=$'
 %b%F{yellow}%B%F{red} %F{magenta}${os_version}%b%F{yellow}─%B%F{blue} %F{magenta}${sh_name}%b%F{yellow}
-%b%F{yellow}┌──❮ %B%F{green} %*%b%F{yellow} ❯─❮ %B%F{green} %D{%d/%m/%y}%b%F{yellow} ❯─❮ %B%F{yellow} %B%F{cyan}%c%b%F{yellow} ❯─ ❮%B%F{blue} ${usr_color}%n%b%F{yellow}❯
+%b%F{yellow}┌──❮ %B%F{green} %*%b%F{yellow} ❯─❮ %B%F{green} %D{%d/%m/%y}%b%F{yellow} ❯─❮ %B%F{yellow} %B%F{cyan}%c%b%F{yellow} ❯─ ❮%B%F{blue} ${usr_color}%n%b%F{yellow}❯ \$(show_git_branch)
 %b%F{yellow}└─%B%F{blue}%f%b '
 
 ### ################################
