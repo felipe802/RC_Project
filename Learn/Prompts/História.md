@@ -5,8 +5,9 @@
 
 ---
 
-## 📜 Regras de Extensão e Profundidade (MUITO IMPORTANTE)
- * **Prolixidade Literária:** Não economize palavras. Não resuma. Quero que você desenvolva a narrativa com um ritmo lento (slow burn) e descrições ricas de worldbuilding. 
+## 📜 Regras de Extensão, Profundidade e Autossuficiência (MUITO IMPORTANTE)
+ * **Prolixidade Literária:** Não economize palavras. Não resuma. Quero que você desenvolva a narrativa com um ritmo lento (slow burn) e descrições ricas de worldbuilding.
+ * **Universo Isolado (Self-Contained):** Este ensaio deve ter começo, meio e fim definitivos. Não faça perguntas ao leitor ao final, não peça permissão para continuar, não sugira "próximos passos" e não deixe raciocínios pela metade. Entregue a obra completa, fechada e autossuficiente em uma única resposta.
  * **Estrutura Rigorosa:** Para CADA subtópico dentro dos capítulos abaixo, escreva no MÍNIMO 3 a 4 parágrafos densos e bem desenvolvidos. Explore o cenário, a motivação dos líderes e as consequências de cada evento histórico antes de avançar para o próximo ponto.
  * **Expansão de Lore:** Se houver uma oportunidade de descrever o cheiro da pólvora, o brilho das runas de código ou a política das cortes, faça-o. O leitor deve se sentir imerso em um livro de mil páginas.
 
