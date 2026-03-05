@@ -5,4 +5,4 @@
 
  | Arquivo Estrutural | Foco | Visão Geral do Conteúdo |
  | :--- | :--- | :--- |
- | **[`Layers.md`](./Layers.md)** | 🏗️ Arquitetura TCP/IP | A consolidação pragmática do modelo de 5 camadas. Traça a vida real de uma requisição HTTP, ilustrando a dança de encapsulamento — do espaço de usuário à comutação MAC. |
+ | **[`Layers.md`](./Layers.md)** | 🏗️ O Fluxo HTTP | A anatomia completa de uma requisição real. Traça o *Data Path* dinâmico desde a geração no cliente, o *Handshake* TCP, o roteamento MAC/IP, até o desencapsulamento no servidor web. |
