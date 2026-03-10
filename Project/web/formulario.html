@@ -2,41 +2,26 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste de POST</title>
+    <link rel="stylesheet" href="css/formulario.css">
 </head>
-<body style="font-family: sans-serif; padding: 20px;">
-    <h2>Testando o Método POST</h2>
+<body>
+    <div class="form-container">
+        <h2>Teste de POST</h2>
+        <p class="subtitle">Envie uma mensagem para o servidor C</p>
 
-    <form id="meuFormulario">
-        <label for="mensagem">Digite uma mensagem para o servidor C:</label><br><br>
-        <input type="text" id="mensagem" name="mensagem" size="40" required>
-        <button type="submit">Enviar via POST</button>
-    </form>
+        <form id="meuFormulario">
+            <div class="input-group">
+                <label for="mensagem">Mensagem</label>
+                <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required>
+            </div>
+            <button type="submit">Enviar via POST</button>
+        </form>
 
-    <br>
-    <p id="respostaServidor" style="color: green; font-weight: bold;"></p>
+        <div id="respostaServidor" class="resposta-oculta"></div>
+    </div>
 
-    <script>
-        document.getElementById('meuFormulario').addEventListener('submit', function(evento) {
-            evento.preventDefault();
-
-            const textoDigitado = document.getElementById('mensagem').value;
-
-            const dadosParaEnviar = "conteudo=" + encodeURIComponent(textoDigitado);
-
-            fetch('/enviar-dados', {
-                method: 'POST', 
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: dadosParaEnviar
-            })
-            .then(resposta => resposta.text())
-            .then(texto => {
-                document.getElementById('respostaServidor').innerText = texto;
-            })
-            .catch(erro => console.error("Erro na comunicação:", erro));
-        });
-    </script>
+    <script src="js/formulario.js"></script>
 </body>
 </html>

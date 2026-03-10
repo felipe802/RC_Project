@@ -12,6 +12,7 @@
 #include "http.h"
 
 static void sigchld_handler(int s) {
+    (void)s;
     int saved_errno = errno;
     int status;
     pid_t pid;

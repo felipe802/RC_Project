@@ -1,14 +1,15 @@
-CC      := gcc
-CFLAGS  := -Wall -Wextra -Werror -std=c23 -I./inc -O2
-TARGET  := server
+CC       := gcc
+CFLAGS   := -Wall -Wextra -Werror -std=c23 -O2
+CPPFLAGS := -I./inc -D_POSIX_C_SOURCE=202405L
+TARGET   := server
 
-SRCDIR  := src
-INCDIR  := inc
-OBJDIR  := obj
+SRCDIR   := src
+INCDIR   := inc
+OBJDIR   := obj
 
-SOURCES := $(wildcard $(SRCDIR)/*.c)
-HEADERS := $(wildcard $(INCDIR)/*.h)
-OBJECTS := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SOURCES))
+SOURCES  := $(wildcard $(SRCDIR)/*.c)
+HEADERS  := $(wildcard $(INCDIR)/*.h)
+OBJECTS  := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SOURCES))
 
 .PHONY: all
 all: build
@@ -22,7 +23,7 @@ $(TARGET): $(OBJECTS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADERS)
 	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 .PHONY: run
 run: build

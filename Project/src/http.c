@@ -195,7 +195,7 @@ void http_handle_client(int client_socket) {
     if (total_received == 0)
         return;
 
-    http_request_t req;
+    http_request_t req = {0};
     parse_http_request(buffer, &req);
 
     printf("[INFO]: Method Code: %d | Path: %s\n", req.method, req.path);
